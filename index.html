@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FB: Friends' board</title>
+        <script src="canvas.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="controls">
+                <button v-on:click="increaseStrokeThickness" id="thiccer">+</button>
+                <button v-on:click="decreaseStrokeThickness" id="thiner">-</button>
+                <span id="strokeThiccnessDisplay">Thiccness: {{ stroke_thickness }}</span><br/>
+                <button id="strokeColorDisplay" v-bind:style="{ backgroundColor: strokeColor }">_</button>
+                <input id="colorInput" v-bind:value="strokeColor">
+            </div>
+            <div width="auto" height="auto" style="margin-left: auto; margin-right: auto;">
+                <canvas id="mainCanvas" width="400px" height="200px" style="position: fixed; border: red solid;">
+                </canvas>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
