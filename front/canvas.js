@@ -84,10 +84,16 @@ mouseUpHandler = function(e) {
         ctx.stroke();
         mouseDown = false;
 
-        currPath[currPath.length - 1] = [
+        currPath.push([
             realX(e),
             realY(e)
-        ];
+        ]);
+
+        app.sendPath({
+            path: currPath,
+            color: ctx.fillStyle,
+            thiccness: ctx.lineWidth
+        });
 
         // reset path buffer
         ctx.beginPath();
@@ -116,10 +122,10 @@ mouseMoveHandler = function(e) {
         ctx.beginPath();
         ctx.moveTo(realX(e), realY(e));
 
-        currPath[currPath.length - 1] = [
+        currPath.push([
             realX(e),
             realY(e)
-        ];
+        ]);
     }
 
     if(!isMouseInCanvas(e)) mouseUpHandler(e);

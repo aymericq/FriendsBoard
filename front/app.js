@@ -11,6 +11,9 @@ let app = new Vue({
         },
         decreaseStrokeThickness: function (event) {
             this.stroke_thickness = this.stroke_thickness <= 1 ? this.stroke_thickness : this.stroke_thickness - 1;
+        },
+        sendPath(path) {
+            console.log(path);
         }
     }
 })
